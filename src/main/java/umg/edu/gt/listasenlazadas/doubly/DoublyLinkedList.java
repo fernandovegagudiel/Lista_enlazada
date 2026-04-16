@@ -115,8 +115,13 @@ public class DoublyLinkedList<T> {
      * @return nodos eliminados
      */
     public int clean() {
-        throw new UnsupportedOperationException(
-                "TODO RETO: Implementar clean() en DoublyLinkedList.");
+int total = this.size;
+    	
+    	while(!this.isEmpty()) {
+    		removeFirst();
+    	}
+    	
+    	return total;
     }
 
     /**
@@ -124,8 +129,8 @@ public class DoublyLinkedList<T> {
      * Invierte la lista in-place, actualizando enlaces next/previous.
      */
     public void reverseInPlace() {
-        throw new UnsupportedOperationException(
-                "TODO RETO: Implementar reverseInPlace() en DoublyLinkedList.");
+    	
+        
     }
 
     /**
