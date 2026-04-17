@@ -154,8 +154,39 @@ int total = this.size;
      * @return cantidad de nodos eliminados
      */
     public int removeDuplicates() {
-        throw new UnsupportedOperationException(
-                "TODO RETO: Implementar removeDuplicates() en DoublyLinkedList.");
+    	int removed = 0;
+        DoublyNode<T> current = head;
+
+        while (current != null) {
+        	DoublyNode<T> runner = current.getNext();
+        	
+            while (runner != null) {
+            	DoublyNode<T> next = runner.getNext();
+            	
+                if (isSameValue(current.getValue(), runner.getValue())) {
+                    DoublyNode<T> prev = runner.getPrevious();
+                    
+                	if (prev != null) {
+                        prev.setNext(next);
+                    }
+                	
+                	if (next != null) {
+                        next.setPrevious(prev);
+                    } else {
+                        tail = prev;
+                    }
+                	
+                    size--;
+                    removed++;
+                } 
+                
+                runner = next;
+            }
+
+            current = current.getNext();
+        }
+
+        return removed;
     }
 
     public String toForwardString() {
